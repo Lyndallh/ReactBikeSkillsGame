@@ -3,14 +3,14 @@ import PlayerStats from './components/NewPlayerForm';
 
 import './App.css'
 import NewPlayerForm from './components/NewPlayerForm';
+import Player from './components/Player';
 
 function App() {
   const [playerStats, setPlayerStats] = useState([
     {
-      id: 1,
       name: 'Lindi',
       practiceCount: 0,
-      passedPractie: false,
+      passedPractice: false,
       can_land_big_jump: false,
       attempted_big_jump: false,
     },
@@ -41,12 +41,13 @@ function App() {
     <div className='app'>
     <h1 className='bike-skills-game'>Bike Skills Game</h1>
       {playerStats.map((player, index) => (
-        <div key={index}> 
-        {player.name} has practiced {player.practiceCount} times
-          <button onClick={() => addPractice(index)}>Add Practice</button>
-        </div>
+        // <div key={index}> 
+        // {player.name} has practiced {player.practiceCount} times
+        //   <button onClick={() => addPractice(index)}>Add Practice</button>
+        // </div>
+        <Player player={player} key = {index} index = {index} addPractice={addPractice} />
       ))}
-            <NewPlayerForm addNewPlayer={addNewPlayer} />
+        <NewPlayerForm addNewPlayer={addNewPlayer} />
     </div>
   );
 }
