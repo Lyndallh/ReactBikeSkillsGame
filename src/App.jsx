@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import PlayerStats from './components/NewPlayerForm';
 
 import './App.css'
 import NewPlayerForm from './components/NewPlayerForm';
@@ -12,28 +11,38 @@ function App() {
       practiceCount: 0,
       passedPractice: false,
       can_land_big_jump: false,
-      attempted_big_jump: false,
+      attemptedJump: false,
     },
   ]);
 
+  
   const addNewPlayer = (text) => {   // bring in the new input text into the function
     const newPlayer = {
       name: text,
       practiceCount: 0,
       passedPractie: false,
       can_land_big_jump: false,
-      attempted_big_jump: false,
+      attemptedJump: false,
     };
     
     const newPlayerStats = [...playerStats, newPlayer];    // the new array is the 'exsisting array' and the text that was inputted into the input feild
     console.log(newPlayerStats);
     setPlayerStats(newPlayerStats);    // update the todoitems state with the new array
   };
-
- // the addPractice function is passed to the PlayerStats component as a prop. It will be called when the button is clicked and it will update the practiceCount for the player with the given id by 1.
+  
+  // the addPractice function is passed to the PlayerStats component as a prop. It will be called when the button is clicked and it will update the practiceCount for the player with the given id by 1.
   const addPractice = (index) => {
     const newPlayerStats = [...playerStats];
     newPlayerStats[index].practiceCount += 1;
+    if (newPlayerStats[index].practiceCount >= 5) {
+      newPlayerStats[index].passedPractice = true;
+    }
+    setPlayerStats(newPlayerStats);
+  };
+  
+  const attemptJump = (index) => {
+    const newPlayerStats = [...playerStats];
+    newPlayerStats[index].attemptedJump = true;
     setPlayerStats(newPlayerStats);
   };
 
@@ -45,7 +54,7 @@ function App() {
         // {player.name} has practiced {player.practiceCount} times
         //   <button onClick={() => addPractice(index)}>Add Practice</button>
         // </div>
-        <Player player={player} key = {index} index = {index} addPractice={addPractice} />
+        <Player player={player} key = {index} index = {index} addPractice={addPractice} attemptJump={attemptJump} />
       ))}
         <NewPlayerForm addNewPlayer={addNewPlayer} />
     </div>
