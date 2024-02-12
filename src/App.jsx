@@ -12,6 +12,7 @@ function App() {
       passedPractice: false,
       can_land_big_jump: false,
       attemptedJump: false,
+      attemptedJump: false,
     },
   ]);
 
@@ -23,17 +24,19 @@ function App() {
       passedPractie: false,
       canLandJump: false,
       attemptedJump: false,
+      canLandJump: false,
+      attemptedJump: false,
     };
     
     const newPlayerStats = [...playerStats, newPlayer];    // the new array is the 'exsisting array' and the text that was inputted into the input feild
     console.log(newPlayerStats);
     setPlayerStats(newPlayerStats);    // update the todoitems state with the new array
   };
-  
+    
   // the addPractice function is passed to the PlayerStats component as a prop. It will be called when the button is clicked and it will update the practiceCount for the player with the given id by 1.
-  const addPractice = (index) => {
+  const addPractice = (index, inputValue) => {
     const newPlayerStats = [...playerStats];
-    newPlayerStats[index].practiceCount += 1;
+    newPlayerStats[index].practiceCount += inputValue;
     if (newPlayerStats[index].practiceCount >= 5) {
       newPlayerStats[index].passedPractice = true;
     }
