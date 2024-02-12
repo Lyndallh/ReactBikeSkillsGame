@@ -21,7 +21,7 @@ function App() {
       name: text,
       practiceCount: 0,
       passedPractie: false,
-      can_land_big_jump: false,
+      canLandJump: false,
       attemptedJump: false,
     };
     
