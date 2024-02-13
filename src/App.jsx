@@ -57,9 +57,15 @@ function App() {
         // {player.name} has practiced {player.practiceCount} times
         //   <button onClick={() => addPractice(index)}>Add Practice</button>
         // </div>
-        <Player player={player} key = {index} index = {index} addPractice={addPractice} attemptJump={attemptJump} />
+        <Player 
+          player={player} 
+          key = {index} 
+          index = {index} 
+          addPractice={addPractice} 
+          attemptJump={attemptJump} />
       ))}
-        <NewPlayerForm addNewPlayer={addNewPlayer} />
+        <NewPlayerForm 
+          addNewPlayer={addNewPlayer} />
     </div>
   );
 }

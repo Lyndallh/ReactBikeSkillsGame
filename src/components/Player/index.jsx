@@ -6,7 +6,10 @@ function Player(props){
         <div className={`player ${props.player.passedPractice ? "passed" : ""} ${props.player.attemptedJump ? "jump-attempted" : ""}`}>
             <p>{props.player.name} has practiced {props.player.practiceCount} times which is {props.player.passedPractice ? "enough practices" : "NOT enough practices" } to jump safely.</p>
             <div>
-            <PracticeInputForm addPractice={props.addPractice} index={props.index}/>
+                <PracticeInputForm 
+                    addPractice={props.addPractice} 
+                    index={props.index}
+                />
             <button onClick={() => props.attemptJump(props.index)}>Jump</button>
             <p>{props.player.passedPractice && props.player.attemptedJump ? "SICK JUMP" : props.player.attemptedJump ? "FAIL" :""}</p>
             </div>
