@@ -12,12 +12,14 @@ function PracticeInputForm(props) {
 
   return (
     <form>
+      <p>Want to practice some more? </p>
+      <p>How many more times?</p>
       <input  
         type="number" 
         value={inputValue} 
         onChange={(event) => setInputValue(Number(event.target.value) )}
       />
-      <button onClick={handleSubmit}>Practice</button>
+      <button onClick={handleSubmit}>Submit Practices</button>
     </form>
   );
 };

@@ -8,24 +8,27 @@ function App() {
   const [playerStats, setPlayerStats] = useState([
     {
       name: 'Lindi',
+      bikesOwned: 3,
+      bikesToOwn: 4,
       practiceCount: 0,
       passedPractice: false,
-      can_land_big_jump: false,
+      canLandJump: false,
       attemptedJump: false,
-      attemptedJump: false,
+      continue: false,
     },
   ]);
 
   
-  const addNewPlayer = (text) => {   // bring in the new input text into the function
+  const addNewPlayer = (text, number) => {   // bring in the new input text into the function
     const newPlayer = {
       name: text,
+      bikesOwned: Number(number),
+      bikesToOwn: Number(number) + Number(1),
       practiceCount: 0,
       passedPractie: false,
       canLandJump: false,
       attemptedJump: false,
-      canLandJump: false,
-      attemptedJump: false,
+      continue: false,
     };
     
     const newPlayerStats = [...playerStats, newPlayer];    // the new array is the 'exsisting array' and the text that was inputted into the input feild
@@ -37,7 +40,7 @@ function App() {
   const addPractice = (index, inputValue) => {
     const newPlayerStats = [...playerStats];
     newPlayerStats[index].practiceCount += inputValue;
-    if (newPlayerStats[index].practiceCount >= 5) {
+    if (newPlayerStats[index].practiceCount >= 50) {
       newPlayerStats[index].passedPractice = true;
     }
     setPlayerStats(newPlayerStats);
@@ -49,23 +52,36 @@ function App() {
     setPlayerStats(newPlayerStats);
   };
 
+  const selectContinue = (index) => {
+    const newPlayerStats = [...playerStats];
+    newPlayerStats[index].continue = true;
+    setPlayerStats(newPlayerStats);
+  };
+
+  const addBike = (index) => {
+    const newPlayerStats = [...playerStats];
+    newPlayerStats[index].bikesOwned += Number(1)
+    newPlayerStats[index].bikesToOwn += Number(1);
+    setPlayerStats(newPlayerStats);
+  };
+
   return (
     <div className='app'>
-    <h1 className='bike-skills-game'>Bike Skills Game</h1>
+    <h1 className='title'>Bike Skills Game</h1>
+    <div className='games'>
       {playerStats.map((player, index) => (
-        // <div key={index}> 
-        // {player.name} has practiced {player.practiceCount} times
-        //   <button onClick={() => addPractice(index)}>Add Practice</button>
-        // </div>
         <Player 
           player={player} 
           key = {index} 
           index = {index} 
           addPractice={addPractice} 
-          attemptJump={attemptJump} />
+          attemptJump={attemptJump}
+          addBike={addBike}
+          selectContinue={selectContinue} />
       ))}
         <NewPlayerForm 
           addNewPlayer={addNewPlayer} />
+    </div>
     </div>
   );
 }
