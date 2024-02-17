@@ -5,18 +5,7 @@ import NewPlayerForm from './components/NewPlayerForm';
 import Player from './components/Player';
 
 function App() {
-  const [playerStats, setPlayerStats] = useState([
-    {
-      name: 'Lindi',
-      bikesOwned: 3,
-      bikesToOwn: 4,
-      practiceCount: 0,
-      passedPractice: false,
-      canLandJump: false,
-      attemptedJump: false,
-      continue: false,
-    },
-  ]);
+  const [playerStats, setPlayerStats] = useState([]);
 
   
   const addNewPlayer = (text, number) => {   // bring in the new input text into the function
@@ -28,6 +17,7 @@ function App() {
       passedPractie: false,
       canLandJump: false,
       attemptedJump: false,
+      jumpingStarted: false,
       continue: false,
     };
     
@@ -57,6 +47,11 @@ function App() {
     newPlayerStats[index].continue = true;
     setPlayerStats(newPlayerStats);
   };
+  const startJumping = (index) => {
+    const newPlayerStats = [...playerStats];
+    newPlayerStats[index].jumpingStarted = true;
+    setPlayerStats(newPlayerStats);
+  };
 
   const addBike = (index) => {
     const newPlayerStats = [...playerStats];
@@ -74,6 +69,7 @@ function App() {
           player={player} 
           key = {index} 
           index = {index} 
+          startJumping={startJumping}
           addPractice={addPractice} 
           attemptJump={attemptJump}
           addBike={addBike}
