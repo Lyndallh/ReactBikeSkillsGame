@@ -8,9 +8,9 @@ function Player(props){
         <div id="player-card" className={`player ${props.player.passedPractice ? "passed" : ""} ${props.player.attemptedJump ? "jump-attempted" : ""}`}>
             <div className="stats-card">
                 <h3 className="player-name">{props.player.name} </h3>
-                <h5>Bikes Owned: {props.player.bikesOwned}</h5>
-                <h5>Practices: {props.player.practiceCount}</h5>
-                <h5>Status: {!props.player.passedPractice ? "Novice" : !props.player.attemptedJump ? "Chicken" : "Legend"}</h5>
+                <h5><u>Bikes Owned:</u> {props.player.bikesOwned}</h5>
+                <h5><u>Practices:</u>  {props.player.practiceCount}</h5>
+                <h5><u>Status:</u>  {!props.player.passedPractice ? "Novice" : !props.player.attemptedJump ? "Chicken" : "Legend"}</h5>
             </div>
             {!props.player.jumpingStarted ? 
             <button className="start" onClick={() => props.startJumping(props.index)}>Let's start jumping!

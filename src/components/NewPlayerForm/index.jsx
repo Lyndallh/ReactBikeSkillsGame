@@ -14,17 +14,16 @@ function NewPlayerForm(props) {
 
     return (// could use onSubmit inside form properties like this: <form onSubmit={handleSubmit}> instead of having a onClick button but using a button is more user friendly
         <form> 
-            <h2>Add a new player</h2>
-            <p>Name?</p>
+            <h3>Add a new player</h3>
             <input 
                 type="text" 
-                placeholder="Add a new player"
+                placeholder="Name"
                 value={value} // this is resetting the input feild to '' using SetValue('') from line 10
                 onChange={(event) => setValue(event.target.value)} //event.target is the input
             />
             <input 
                 type="number" 
-                placeholder="bikes"
+                placeholder="Bikes owned"
                 value={bikesValue} // this is resetting the input feild to '' using SetValue('') from line 10
                 onChange={(event) => setBikesValue(event.target.value)} //event.target is the input
             />
