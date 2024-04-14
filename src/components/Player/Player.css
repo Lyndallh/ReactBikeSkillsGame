@@ -1,0 +1,82 @@
+#player-card{
+    display: grid;
+    grid-template-columns: 34% 33% 33%;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--sand);
+    color: var(--teal-dark);
+    margin: auto;
+    padding: 1em;
+    border-radius: 1em;
+    width: 90%;
+}
+
+.player-name{
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+
+.stats-card{
+    margin: 1em;
+    padding: 1em;
+    background-color: var(--teal-light);
+    border-radius: 1em;
+    border-style: outset;
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    justify-self: start;
+}
+
+.summary{
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 0.5em;
+    border-color: var(--darkblue);
+    border-width: 1px;
+    font-size: 1em;
+    grid-column: 2 / span 2;
+    grid-row: 1;
+}
+
+
+.practice-input{
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 0.5em;
+    border-color: var(--darkblue);
+    border-width: 1px;
+    font-size: 1em;
+    grid-column: 2;
+    grid-row: 2;
+    align-self: flex-start;
+
+}
+.jump-card{
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 0.5em;
+    border-color: var(--darkblue);
+    border-width: 1px;
+    font-size: 1em;
+    grid-column: 3;
+    grid-row: 2;
+    align-self: flex-start;
+}
+.start, #jump-success, .new-bike{
+    grid-column: 2 / span 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+}
+
+
+/* .choice{
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 0.5em;
+    border-color: var(--darkblue);
+    border-width: 1px;
+    font-size: 1em;
+    grid-column: 1/3;
+} */
+
